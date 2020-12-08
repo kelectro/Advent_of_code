@@ -39,4 +39,18 @@ def load_data(path):
 
 tickets = load_data(filepath)
 seat_ids = [ticket_decode(ticket) for ticket in tickets]
-print(max(seat_ids))
+seat_ids.sort()
+
+
+for i in range(len(seat_ids)):
+    if seat_ids[i]+1!= seat_ids[i+1]:
+        missing = (seat_ids[i]+1)
+        break
+    if i+1 == 760 :
+        print('No empty seats')
+        break
+
+
+
+print('The max id is ',max(seat_ids))
+print('The missing seat in the plane is the seat with id:', missing)
